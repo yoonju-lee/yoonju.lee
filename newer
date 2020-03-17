@@ -1,2 +1,3 @@
 #!/bin/sh
-find -newer foo
+cd /home/ubuntu
+find * -newer foo
