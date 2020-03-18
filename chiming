@@ -1,0 +1,23 @@
+#!/bin/bash
+# save as time-signal.sh
+# gives a time signal every hour when connected to cron
+time=$(date +%I)
+min=$(date +%M)
+count=0
+while test $count -lt $time; do
+  echo -e "\a"
+  sleep 1 # sleep for one second
+  count=$[$count+1]
+done
+# sleep 3 seconds
+sleep 3
+# gives time signal according to the miniutes
+if ((min >= 15 && min < 30)); then
+  echo -e "\a"
+elif ((min >= 30 && min < 45)); then
+  echo -e "\a"; sleep 1; echo -e "\a"
+elif ((min >= 45 && min < 60)); then
+  echo -e "\a"; sleep 1; echo -e "\a" ; sleep 1; echo -e "\a"
+else
+  exit
+fi
