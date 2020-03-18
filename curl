@@ -1,0 +1,1 @@
+ curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--time-signal.sh > /home/ubuntu/bin/time-signal.sh
