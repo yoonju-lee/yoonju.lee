@@ -1,0 +1,1 @@
+select m.LastName, m.FirstName from Member m join Entry e where m.MemberID=e.MemberID and e.Year=2010;
