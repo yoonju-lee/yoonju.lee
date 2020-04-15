@@ -1,1 +1,1 @@
- select m.LastName, m.FirstName, m.MemberID from Member m where m.MemberID in (select distinct e.MemberID from Entry e, Entry e1, Entry e2 where e.MemberID=e1.MemberID and e1.MemberID=e2.MemberID and e.Year=2013 and e1.Year=2014 and e2.Year=2015);
+select m.LastName, m.FirstName, m.MemberID from Member m where m.MemberID in (select distinct e.MemberID from Entry e, Entry e1, Entry e2 where e.MemberID=e1.MemberID and e1.MemberID=e2.MemberID and e.Year=2013 and e1.Year=2014 and e2.Year=2015);
