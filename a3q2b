@@ -1,2 +1,3 @@
 #This is mysql code
+#if you want to use in AWS stance, you should put 'mysql -u awkologist -p world_x' and enter password before use below script
 select c.Name, l.Percentage, t.Name from countrylanguage l, country c, city t where l.CountryCode=c.Code and c.Capital=t.ID and l.Language="English" and l.Percentage>50;
