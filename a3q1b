@@ -1,0 +1,1 @@
+awk -F"\t" 'NR==1{print} $2~/ase/ {print $1, $2, $3}' annotation.tab
