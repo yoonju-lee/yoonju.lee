@@ -1,0 +1,15 @@
+Country<-c("US", "Italy", "Belgium", "Germany","South-Korea","Australia","China","San-Marino","France","Netherlands")
+Death100k<-c(17.84,45.27,64.18,7.61,0.48,0.36,0.33,121.36,35.37,26.59)
+cov19<-tibble(Country, Death100k)
+
+library(ggplot2)
+p<-ggplot(cov19, aes(reorder(Country,+Death100k, sum), Death100k))+geom_col(width=0.7, fill=c("skyblue","skyblue","skyblue","blue","skyblue","blue","skyblue","skyblue","skyblue","skyblue"))
+p
+p+coord_flip()+theme_bw()+
+  labs(x=NULL, y=NULL, title = "International efficiency",
+        subtitle = expression(atop("Covid-19 Deaths per 100,000 population",
+        atop("Random selected countries, to April 28th 2020"))),
+        caption="Sources:Jonhs Hopkins University, CSSE; PHE/NHS")+
+  theme(plot.title = element_text(face = "bold", size="14", family = "serif"),
+        plot.subtitle = element_text(size = 11, face = "bold"),
+        plot.caption = element_text(hjust = 0, colour = "darkgray"))
