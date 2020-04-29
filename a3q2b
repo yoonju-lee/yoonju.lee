@@ -1,0 +1,2 @@
+#This is mysql code
+select c.Name, l.Percentage, t.Name from countrylanguage l, country c, city t where l.CountryCode=c.Code and c.Capital=t.ID and l.Language="English" and l.Percentage>50;
