@@ -1,0 +1,16 @@
+install.packages("devtools") #you can skip if you've already installed it
+devtools::install_github("DougLuke/UserNetR")#you can skip if you've already installed it
+library(UserNetR)
+data(Bali)
+library(ggplot2)
+library(ggnetwork)
+
+ggnetplot <- function(Net = Bali) { Net <- ggnetwork(Net, layout ="kamadakawai")
+ggplot(Net, aes(x,y, xend = xend,
+                yend = yend)) + geom_edges(col = "skyblue") +
+  geom_nodetext_repel(aes(label =
+                            vertex.names), col = "black", size = 3) +
+  theme_blank()
+}
+
+ggnetplot()
