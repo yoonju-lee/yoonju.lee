@@ -1,0 +1,19 @@
+library(WDI)
+WDIsearch("co2.*capita") #search CO2 data 
+wdi_data<-WDI(indicator = c("EN.ATM.CO2E.PC"), start = 2010, end=2010, extra = TRUE) #create data named wdi_data having information about global CO2 emission.
+library(dplyr)
+wdi_data=as_tibble(wdi_data) #make it as a data frame
+wdi_data<-wdi_data %>% rename(CO2percap=EN.ATM.CO2E.PC) #rename variable as CO2percap 
+write.csv(wdi_data,"wdi_CO2_GDP.csv") #create csv file with this information
+wdi<-read.csv("wdi_CO2_GDP.csv") #call that csv file
+
+library(ggplot2)
+library(maps)
+dat_map<-map_data("world")
+
+library(countrycode)
+data
+dat_map$ccode<-countrycode(dat_map$region, origin = "country.name", destination = "wb")
+wdi$ccode<-countrycode(wdi$country, origin = "country.name", destination = "wb")
+merged<-full_join(dat_map, wdi, by="ccode")
+ggplot(merged, aes(x=long, y=lat, group=group, fill=log10(CO2percap)))+geom_polygon()
