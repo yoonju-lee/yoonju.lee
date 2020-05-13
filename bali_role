@@ -1,0 +1,10 @@
+library(igraph)
+library(statnet)
+
+gplot(Bali,vertex.col="slateblue2",gmode="graph")
+rolelab <- get.vertex.attribute(Bali,"role")
+class(rolelab)
+op <- par(mar=c(0,0,0,0)) 
+plot(Bali,usearrows=FALSE,vertex.cex=1.5,label=rolelab,
+                               displaylabels=T,vertex.col="role")
+par(op)
